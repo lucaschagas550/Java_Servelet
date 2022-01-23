@@ -8,12 +8,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(urlPatterns = "/novaEmpresa") //Define nome da url
+//@WebServlet(urlPatterns = "/novaEmpresa")
 public class NovaEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nomeEmpresa = request.getParameter("nome"); //nome do parametro que será enviado
+	
+	//doPost so aceita post na requisicao doGet ...
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nomeEmpresa = request.getParameter("nome");
 		
 		System.out.println("cadastrando nova empresa.");
 		PrintWriter out = response.getWriter();
